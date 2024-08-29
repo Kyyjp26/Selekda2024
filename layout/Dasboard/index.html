@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTechID</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="search-input">
+        <input type="text" placeholder="Search" />
+        <button type="button">Cari</button>
+      </div>
+    </nav>
+
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <ul class="sidebar-menu">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">User</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Portofolio</a></li>
+          <li><a href="#">Banner</a></li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <div class="grid-dashborad">
+          <div class="item-dashboard dash1">
+            <div class="logo-dash">
+              <img src="../../Image/IMAGES/Computer_Logo_Image.png" alt="" />
+            </div>
+            <div class="dash-info">
+              <div class="dash-item">
+                <div class="dash-text">
+                  <h4 class="dash-list">1</h4>
+                  <h4>Admin</h4>
+                </div>
+                <div>
+                  <div class="dash-circle"></div>
+                </div>
+              </div>
+              <div class="dash-item">
+                <div class="dash-text">
+                  <h4 class="dash-list">10</h4>
+                  <h4>User</h4>
+                </div>
+                <div>
+                  <div class="dash-circle"></div>
+                </div>
+              </div>
+              <div class="dash-item">
+                <div class="dash-text">
+                  <h4 class="dash-list">6</h4>
+                  <h4>Portofolio</h4>
+                </div>
+                <div>
+                  <div class="dash-circle"></div>
+                </div>
+              </div>
+              <div class="dash-item">
+                <div class="dash-text">
+                  <h4 class="dash-list">50</h4>
+                  <h4>Blog</h4>
+                </div>
+                <div>
+                  <div class="dash-circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item-dashboard">
+            <canvas id="lineChart" width="300" height="300"></canvas>
+          </div>
+          <div class="item-dashboard dash3">
+            <canvas id="barChart" width="300" height="300"></canvas>
+            <canvas id="pieChart" width="300" height="300"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
