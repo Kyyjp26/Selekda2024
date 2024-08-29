@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 3rem;
+  background-color: #3f3f3f;
+}
+
+.nav-ul,
+.nav-li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-ul,
+.nav-li,
+a {
+  text-decoration: none;
+  margin: 0 0.2rem;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.nav-active {
+  font-weight: bold;
+}
+
+.nav-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 3rem;
+}
+
+.portofolio {
+  padding: 40px;
+}
+
+.filter {
+  background-color: #d9d9d9;
+  width: 15rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  color: #6c6262;
+  margin-bottom: 2.5rem;
+}
+
+.grid-portofolio {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.card-portofolio {
+  border: solid 1px lightgray;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-portofolio img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.card-text {
+  padding: 1.2rem;
+}
+
+.card-text h3 {
+  /* margin-bottom: 5px; */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card-text h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  color: rgb(142, 142, 142);
+}
+
+.see {
+  display: flex;
+}
+
+.view {
+  margin-right: 20px;
+}
+
+footer {
+  padding: 40px;
+  background-color: #272b37;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-footer {
+  margin-bottom: 20px;
+}
+
+.link-footer {
+  margin-bottom: 30px;
+}
+
+.link-footer a {
+  color: white;
+}
+
+.footer-icon {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-icon a {
+  width: 2rem;
+}
+
+.footer-icon img {
+  width: 100%;
+}
+
+.footer-copyright {
+  background-color: #282a2f;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
