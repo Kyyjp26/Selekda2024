@@ -1,0 +1,60 @@
+.testimonials {
+  padding: 40px;
+  background-color: #272b37;
+  color: white;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.grid-testimonials {
+  display: flex;
+  gap: 2rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+.item-testimonials {
+  flex: 0 0 auto;
+  width: 20rem;
+  height: 20rem;
+  scroll-snap-align: center;
+  background-color: white;
+  color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.tester {
+  display: flex;
+  background-color: #9d9d9d;
+  color: white;
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  width: 10rem;
+  padding: 5px 10px;
+  border-radius: 50px 50px 50px 0;
+}
+
+.tester img {
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.tester div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10px;
+}

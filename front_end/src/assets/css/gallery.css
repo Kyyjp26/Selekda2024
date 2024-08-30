@@ -1,0 +1,33 @@
+.gallery {
+  padding: 40px;
+  overflow: hidden;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.grid-gallery {
+  display: flex;
+  gap: 2rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.item-gallery {
+  flex: 0 0 auto;
+  width: 30rem;
+  height: 20rem;
+  scroll-snap-align: center;
+}
+
+.item-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
