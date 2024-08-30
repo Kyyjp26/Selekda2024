@@ -1,0 +1,57 @@
+.banner-admin-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.banner-form {
+  margin-bottom: 20px;
+}
+
+.banner-form h2 {
+  margin-bottom: 10px;
+}
+
+.banner-form input,
+.banner-form select,
+.banner-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.banner-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.banner-form button:hover {
+  background-color: #0056b3;
+}
+
+.banner-list {
+  margin-top: 20px;
+}
+
+.banner-list h2 {
+  margin-bottom: 10px;
+}
+
+.banner-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.banner-image {
+  width: 150px;
+  height: auto;
+  margin-right: 15px;
+}

@@ -5,6 +5,8 @@ const StageContext = createContext({
   setCurrentUser: () => {},
   userToken: null,
   setToken: () => {},
+  banners: [],
+  setBanners: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
@@ -12,6 +14,7 @@ export const ContextProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(
     localStorage.getItem("accessToken")
   );
+  const [banners, setBanners] = useState([]);
 
   const setToken = (token) => {
     if (token) {
@@ -29,6 +32,8 @@ export const ContextProvider = ({ children }) => {
         setCurrentUser,
         userToken,
         setToken,
+        banners,
+        setBanners,
       }}
     >
       {children}

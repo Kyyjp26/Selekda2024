@@ -8,6 +8,7 @@ import BlogDetail from "./view/BlogDetail";
 import PortofolioList from "./view/PortofolioList";
 import Dashboard from "./view/Dashboard";
 import DashboardLayout from "./components/DashBoardLayout";
+import BannerAdmin from "./view/BannerAdmin";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         element: <BlogDetail />,
       },
       {
-        path: "/portofolio-list",
+        path: "/portofolio",
         element: <PortofolioList />,
       },
     ],
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/banner",
+        element: <BannerAdmin />,
       },
     ],
   },

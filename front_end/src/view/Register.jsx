@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/css/register.css";
 import { Link, useNavigate } from "react-router-dom";
 import axiosClient from "../axios";
+import { useStageContext } from "../context/ContextProvider";
 
 function Register() {
   const [name, setName] = useState("");
@@ -11,7 +12,14 @@ function Register() {
   const [birthDate, setBirthDate] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
+  const { userToken } = useStageContext();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userToken) {
+      navigate("/");
+    }
+  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
