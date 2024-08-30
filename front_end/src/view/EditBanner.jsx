@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axiosClient from "../axios";
+import { useNavigate, useParams } from "react-router-dom";
 import "../assets/css/add-banner.css";
-import { useNavigate } from "react-router-dom";
 
-export default function AddBanner() {
+export default function EditBanner() {
+  const { id } = useParams();
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("active");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const editData = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -19,29 +20,23 @@ export default function AddBanner() {
     formData.append("description", description);
     formData.append("status", status);
 
-    axiosClient
-      .post("/banner/create", formData, {
+    try {
+      const response = await axiosClient.post(`/banner/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      })
-      .then((response) => {
-        console.log("Banner added successfully:", response.data);
-        setTitle("");
-        setImage(null);
-        setDescription("");
-        setStatus("active");
-        navigate("/dashboard/banner");
-      })
-      .catch((error) => {
-        console.error("There was an error adding the banner:", error);
       });
+      console.log("Banner updated successfully:", response.data);
+      navigate("/dashboard/banner");
+    } catch (error) {
+      console.error("There was an error updating the banner:", error);
+    }
   };
 
   return (
     <div className="add-banner-container">
-      <h2>Add New Banner</h2>
-      <form className="add-banner-form" onSubmit={handleSubmit}>
+      <h2>Edit Banner</h2>
+      <form className="add-banner-form" onSubmit={editData}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input
@@ -59,8 +54,8 @@ export default function AddBanner() {
           <input
             type="file"
             id="image"
-            onChange={(e) => setImage(e.target.files[0])}
             accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
             required
           />
         </div>
@@ -90,7 +85,7 @@ export default function AddBanner() {
         </div>
 
         <button type="submit" className="submit-button">
-          Add Banner
+          Update Banner
         </button>
       </form>
     </div>

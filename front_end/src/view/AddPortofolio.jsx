@@ -3,11 +3,11 @@ import axiosClient from "../axios";
 import "../assets/css/add-banner.css";
 import { useNavigate } from "react-router-dom";
 
-export default function AddBanner() {
+export default function AddPortofolio() {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("active");
+  const [author, setAuthor] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -17,30 +17,30 @@ export default function AddBanner() {
     formData.append("title", title);
     formData.append("image", image);
     formData.append("description", description);
-    formData.append("status", status);
+    formData.append("author", author);
 
     axiosClient
-      .post("/banner/create", formData, {
+      .post("/portofolio/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {
-        console.log("Banner added successfully:", response.data);
+        console.log("Portofolio added successfully:", response.data);
         setTitle("");
         setImage(null);
         setDescription("");
-        setStatus("active");
-        navigate("/dashboard/banner");
+        setAuthor("");
+        navigate("/dashboard/portofolio");
       })
       .catch((error) => {
-        console.error("There was an error adding the banner:", error);
+        console.error("There was an error adding the portofolio:", error);
       });
   };
 
   return (
     <div className="add-banner-container">
-      <h2>Add New Banner</h2>
+      <h2>Add New Portofolio</h2>
       <form className="add-banner-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -49,7 +49,7 @@ export default function AddBanner() {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter banner title"
+            placeholder="Enter portofolio title"
             required
           />
         </div>
@@ -77,20 +77,19 @@ export default function AddBanner() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="status">Status</label>
-          <select
-            id="status"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
+          <label htmlFor="author">Author</label>
+          <input
+            type="text"
+            id="author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            placeholder="Enter portofolio author"
             required
-          >
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-          </select>
+          />
         </div>
 
         <button type="submit" className="submit-button">
-          Add Banner
+          Add Portofolio
         </button>
       </form>
     </div>

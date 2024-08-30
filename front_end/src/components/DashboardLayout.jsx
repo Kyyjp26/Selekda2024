@@ -15,16 +15,16 @@ export default function DashboardLayout() {
         <aside className="sidebar">
           <ul className="sidebar-menu">
             <li>
-              <a href="#">Dashboard</a>
+              <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li>
               <a href="#">User</a>
             </li>
             <li>
-              <a href="#">Blog</a>
+              <NavLink to="/dashboard/blog">Blog</NavLink>
             </li>
             <li>
-              <a href="#">Portofolio</a>
+              <NavLink to="/dashboard/portofolio">Portofolio</NavLink>
             </li>
             <li>
               <NavLink to="/dashboard/banner">Banner</NavLink>

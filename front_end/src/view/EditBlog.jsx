@@ -1,47 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axiosClient from "../axios";
+import { useNavigate, useParams } from "react-router-dom";
 import "../assets/css/add-banner.css";
-import { useNavigate } from "react-router-dom";
 
-export default function AddBanner() {
+export default function EditBlog() {
+  const { id } = useParams();
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("active");
+  const [author, setAuthor] = useState("");
+  const [tags, setTags] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const editData = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
     formData.append("title", title);
     formData.append("image", image);
     formData.append("description", description);
-    formData.append("status", status);
+    formData.append("author", author);
+    formData.append("tags", tags);
 
-    axiosClient
-      .post("/banner/create", formData, {
+    try {
+      const response = await axiosClient.post(`/blog/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      })
-      .then((response) => {
-        console.log("Banner added successfully:", response.data);
-        setTitle("");
-        setImage(null);
-        setDescription("");
-        setStatus("active");
-        navigate("/dashboard/banner");
-      })
-      .catch((error) => {
-        console.error("There was an error adding the banner:", error);
       });
+      console.log("Blog updated successfully:", response.data);
+      navigate("/dashboard/blog");
+    } catch (error) {
+      console.error("There was an error updating the blog:", error);
+    }
   };
 
   return (
     <div className="add-banner-container">
-      <h2>Add New Banner</h2>
-      <form className="add-banner-form" onSubmit={handleSubmit}>
+      <h2>Edit Blog</h2>
+      <form className="add-banner-form" onSubmit={editData}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input
@@ -49,7 +46,7 @@ export default function AddBanner() {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter banner title"
+            placeholder="Enter blogs title"
             required
           />
         </div>
@@ -59,8 +56,8 @@ export default function AddBanner() {
           <input
             type="file"
             id="image"
-            onChange={(e) => setImage(e.target.files[0])}
             accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
             required
           />
         </div>
@@ -77,20 +74,31 @@ export default function AddBanner() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="status">Status</label>
-          <select
-            id="status"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
+          <label htmlFor="author">Author</label>
+          <input
+            type="text"
+            id="author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            placeholder="Enter blogs author"
             required
-          >
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-          </select>
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="tags">Tags</label>
+          <input
+            type="text"
+            id="tags"
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
+            placeholder="Enter blogs tags"
+            required
+          />
         </div>
 
         <button type="submit" className="submit-button">
-          Add Banner
+          Update Tags
         </button>
       </form>
     </div>

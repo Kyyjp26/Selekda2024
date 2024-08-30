@@ -4,27 +4,29 @@ import { useStageContext } from "../context/ContextProvider";
 import { Link } from "react-router-dom";
 import "../assets/css/banner-admin.css";
 
-export default function BannerAdmin() {
-  const { banners, setBanners } = useStageContext();
+export default function PortofolioAdmin() {
+  const { portofolios, setPortofolios } = useStageContext();
 
   useEffect(() => {
     axiosClient
-      .get("/banner")
+      .get("/portofolio")
       .then(({ data }) => {
-        setBanners(data.data);
+        setPortofolios(data.data);
         console.log(data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [setBanners]);
+  }, [setPortofolios]);
 
   const onDelete = (id) => {
     axiosClient
-      .delete(`/banner/${id}`)
+      .delete(`/portofolio/${id}`)
       .then(({ data }) => {
-        const delBanner = banners.filter((banner) => banner.id !== id);
-        setBanners(delBanner);
+        const delPorto = portofolios.filter(
+          (portofolio) => portofolio.id !== id
+        );
+        setPortofolios(delPorto);
       })
       .catch((err) => {
         const errMessage = err.response?.data?.message;
@@ -34,34 +36,34 @@ export default function BannerAdmin() {
 
   return (
     <div className="banner-admin-container">
-      <h1 className="management">Banner Management</h1>
-      <Link to="/dashboard/add-banner" className="add">
-        Add Banner
+      <h1 className="management">Portofolio Management</h1>
+      <Link to="/dashboard/add-portofolio" className="add">
+        Add portofolio
       </Link>
       <div className="banner-list">
-        {banners.length === 0 ? (
-          <p>No banners available.</p>
+        {portofolios.length === 0 ? (
+          <p>No portofolios available.</p>
         ) : (
           <ul>
-            {banners.map((banner) => (
-              <li key={banner.id} className="banner-item">
-                <h3>{banner.title}</h3>
+            {portofolios.map((portofolio) => (
+              <li key={portofolio.id} className="banner-item">
+                <h3>{portofolio.title}</h3>
                 <img
-                  src={`data:image/jpeg;base64,${banner.image}`}
-                  alt={banner.title}
+                  src={`data:image/jpeg;base64,${portofolio.image}`}
+                  alt={portofolio.title}
                   className="banner-image"
                 />
-                <p className="banner-description">{banner.description}</p>
-                <p>Status: {banner.status}</p>
+                <p className="banner-description">{portofolio.description}</p>
+                <p>Status: {portofolio.status}</p>
                 <div className="banner-actions">
                   <Link
-                    to={`/dashboard/edit-banner/${banner.id}`}
+                    to={`/dashboard/edit-portofolio/${portofolio.id}`}
                     className="edit-button"
                   >
                     Edit
                   </Link>
                   <button
-                    onClick={() => onDelete(banner.id)}
+                    onClick={() => onDelete(portofolio.id)}
                     className="delete-button"
                   >
                     Delete
