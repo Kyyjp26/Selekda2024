@@ -7,7 +7,7 @@ import Blog from "./view/Blog";
 import BlogDetail from "./view/BlogDetail";
 import PortofolioList from "./view/PortofolioList";
 import Dashboard from "./view/Dashboard";
-import DashboardLayout from "./components/DashBoardLayout";
+import DashboardLayout from "./components/DashboardLayout";
 import BannerAdmin from "./view/BannerAdmin";
 import AddBanner from "./view/AddBanner";
 import EditBanner from "./view/EditBanner";
