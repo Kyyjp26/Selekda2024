@@ -4,10 +4,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\BannerController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PortofolioController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -35,5 +36,11 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::post('/blog/create', [BlogController::class, 'store']);
         Route::post('/blog/{id}', [BlogController::class, 'update']);
         Route::delete('/blog/{id}', [BlogController::class, 'destroy']);
+
+        Route::get('/portofolio', [PortofolioController::class, 'index']);
+        Route::get('/portofolio/{id}', [PortofolioController::class, 'show']);
+        Route::post('/portofolio/create', [PortofolioController::class, 'store']);
+        Route::post('/portofolio/{id}', [PortofolioController::class, 'update']);
+        Route::delete('/portofolio/{id}', [PortofolioController::class, 'destroy']);
     });
 });
