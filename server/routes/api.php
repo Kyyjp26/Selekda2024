@@ -42,5 +42,7 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::post('/portofolio/create', [PortofolioController::class, 'store']);
         Route::post('/portofolio/{id}', [PortofolioController::class, 'update']);
         Route::delete('/portofolio/{id}', [PortofolioController::class, 'destroy']);
+
+        Route::post('/user/{username}', [AuthController::class, 'userUpdate']);
     });
 });

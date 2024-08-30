@@ -94,4 +94,52 @@ class AuthController extends Controller
             'message' => 'logout success'
         ], 200);
     }
+
+    public function userUpdate(Request $request ,$username)
+    {
+        $user = User::where('username', $username)->first();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'data not found'
+            ], 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'username' => 'required|unique:users',
+            'email' => 'required|unique:users',
+            'password' => 'required',
+            'birth_date' => 'required|date',
+            'phone_number' => 'required',
+            'profile_picture' => 'nullable|image|max:2048'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'validation failed',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        if ($request->hasFile('profile_picture')) {
+            $foto = $request->file('profile_picture');
+            $base64Image = base64_encode(file_get_contents($foto->path()));
+            $user->profile_picture = $base64Image;
+        }
+
+        $user->update([
+            'name' => $request->input('name'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'birth_date' => $request->input('birth_date'),
+            'phone_number' => $request->input('phone_number'),
+        ]);
+        $user->save();
+
+        return response()->json([
+            'message' => 'update succes'
+        ], 200);
+    }
 }
