@@ -50,7 +50,7 @@ class AuthController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'login sucess',
+            'message' => 'register sucess',
             'data' => $user
         ],201);
     }
