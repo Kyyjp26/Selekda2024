@@ -1,0 +1,941 @@
+{
+	"info": {
+		"_postman_id": "d3908cfb-3e89-4ae4-b53d-70e407ca51d5",
+		"name": "Selekda2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32600016"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "2007-07-26",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "084192101",
+									"type": "text"
+								},
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/Levy Nas.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|BNY1nogMLQaEJ0JhEdwSybRLQxEjxOKi6tB63jbs1d322865",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserUpdate (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "user update",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "user update",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "userupdate@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "1500-04-26",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/p3.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|BNY1nogMLQaEJ0JhEdwSybRLQxEjxOKi6tB63jbs1d322865",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|XRgc4LoffeuZI6QcHnEo6g7e4PAiS3VB4MdkmSNOa5d1ee8c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/apel.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Banner",
+			"item": [
+				{
+					"name": "AddBanner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5|5ygByEkrrRpYZ3oE9esS5naPxFjqFdCq5MI3W40xd82c286e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Mantap",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Documents/LKS/Selekda2024/Soal/MEDIA_FILES/IMAGES/images (3).jpg"
+								},
+								{
+									"key": "description",
+									"value": "blablabla",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/banner/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllBanner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|vC8eVSGwxE2gbWv9Mc3ugasnJXJXXOg9kMNOKTvj100776d0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/banner",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBanner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|vC8eVSGwxE2gbWv9Mc3ugasnJXJXXOg9kMNOKTvj100776d0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Title Update",
+									"type": "text"
+								},
+								{
+									"key": "bannerImage",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/cabai.jpg"
+								},
+								{
+									"key": "status",
+									"value": "inactive",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/banner/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBanner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|vC8eVSGwxE2gbWv9Mc3ugasnJXJXXOg9kMNOKTvj100776d0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/banner/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "AllBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/blog",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/blog/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/belnet-kabel-jaringan-lan-ethernet-cat-5e-100-mbps-support-305-m-bel-ua5.jpg"
+								},
+								{
+									"key": "title",
+									"value": "blog",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "blablabla",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "waduh",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "mantap",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/blog/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/belnet-kabel-jaringan-lan-ethernet-cat-5e-100-mbps-support-305-m-bel-ua5.jpg"
+								},
+								{
+									"key": "title",
+									"value": "blgo Update",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "update",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "update",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "update",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/blog/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/blog/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Portofolio",
+			"item": [
+				{
+					"name": "AllPortofolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/portofolio",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"portofolio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPortofolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/portofolio/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"portofolio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddPortofolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "portofolio",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/lemon.jpg"
+								},
+								{
+									"key": "description",
+									"value": "blablabla",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "waduh",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/portofolio/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"portofolio",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePortofolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "portofolio Update",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP ELITEBOOK/Pictures/goblin.png"
+								},
+								{
+									"key": "description",
+									"value": "update",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "update",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/portofolio/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"portofolio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePortofolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9apajInGkK2PgzKf2pMr3lwyyLke99EcCxNLA4lR1dbc8ae0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/portofolio/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"portofolio",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
