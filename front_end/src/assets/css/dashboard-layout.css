@@ -1,0 +1,106 @@
+nav {
+  background-color: #3f3f3f;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  width: 100%;
+}
+
+.search-input input {
+  width: 30rem;
+  height: 2.5rem;
+  border-radius: 50px;
+  background-color: #d9d9d9;
+  border: none;
+  outline: none;
+  padding-left: 16px;
+  font-weight: bold;
+  color: #505050;
+  position: relative;
+}
+
+.search-input input::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 20rem;
+  background-color: #17b9ff;
+}
+
+.search-input {
+  position: relative;
+  width: 20rem;
+}
+
+.search-input input {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 50px;
+  background-color: #d9d9d9;
+  border: none;
+  outline: none;
+  padding: 0 60px 0 16px;
+  font-weight: bold;
+  color: #505050;
+}
+
+.search-input button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25%;
+  height: 100%;
+  border: none;
+  border-radius: 50px;
+  background-color: #17b9ff;
+  color: white;
+  padding: 0 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-input button:hover {
+  background-color: #0e87c7;
+}
+
+.dashboard-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #3f3f3f;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  padding-top: 60px;
+}
+
+.sidebar-menu li {
+  margin-bottom: 30px;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  font-size: 1.3rem;
+}
