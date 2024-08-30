@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -28,5 +29,11 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::post('/banner/create', [BannerController::class, 'store']);
         Route::post('/banner/{id}', [BannerController::class, 'update']);
         Route::delete('/banner/{id}', [BannerController::class, 'destroy']);
+
+        Route::get('/blog', [BlogController::class, 'index']);
+        Route::get('/blog/{id}', [BlogController::class, 'show']);
+        Route::post('/blog/create', [BlogController::class, 'store']);
+        Route::post('/blog/{id}', [BlogController::class, 'update']);
+        Route::delete('/blog/{id}', [BlogController::class, 'destroy']);
     });
 });
