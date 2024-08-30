@@ -26,7 +26,7 @@ export default function BlogList() {
         ) : (
           <ul>
             {blogs.map((blog) => (
-              <li key={blog.id} className="item-blog">
+              <div key={blog.id} className="item-blog">
                 <div className="card-blog">
                   <img
                     src={
@@ -51,7 +51,7 @@ export default function BlogList() {
                     </div>
                   </div>
                 </div>
-              </li>
+              </div>
             ))}
           </ul>
         )}

@@ -8,6 +8,10 @@
   gap: 30px;
 }
 
+.item-blog {
+  margin-bottom: 20px;
+}
+
 .card-blog {
   border: solid 1px lightgray;
   border-radius: 10px;
