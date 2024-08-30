@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -41,7 +42,7 @@ class AuthController extends Controller
             'name' => $request->input('name'),
             'username' => $request->input('username'),
             'email' => $request->input('email'),
-            'password' => $request->input('password'),
+            'password' => Hash::make($request->input('password')),
             'birth_date' => $request->input('birth_date'),
             'phone_number' => $request->input('phone_number'),
             'profile_picture' => $fotoPath,
