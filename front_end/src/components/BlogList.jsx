@@ -10,7 +10,7 @@ export default function BlogList() {
     axiosClient
       .get("/blog")
       .then(({ data }) => {
-        setBlogs(data.data);
+        setBlogs(data.data); // Ensure this matches your API's response structure
         console.log(data);
       })
       .catch((err) => {
@@ -25,11 +25,15 @@ export default function BlogList() {
           <p>No blogs available.</p>
         ) : (
           <ul>
-            {blogs.map((blog) => {
+            {blogs.map((blog) => (
               <li key={blog.id} className="item-blog">
                 <div className="card-blog">
                   <img
-                    src={`data:image/jpeg;base64,${blog.image}`}
+                    src={
+                      blog.image
+                        ? `data:image/jpeg;base64,${blog.image}`
+                        : "/path/to/default-image.jpg"
+                    }
                     alt={blog.title}
                   />
                   <div className="card-text">
@@ -37,16 +41,18 @@ export default function BlogList() {
                     <h4>{blog.author}</h4>
                     <p>{blog.description}</p>
                     <div className="card-footer">
-                      <p className="date">{blog.date}</p>
+                      <p className="date">
+                        {new Date(blog.date).toLocaleDateString()}
+                      </p>
                       <div className="see">
                         <p className="view">20 views</p>
-                        <p>30 comments</p>
+                        <p>40 comments</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </li>;
-            })}
+              </li>
+            ))}
           </ul>
         )}
       </div>
