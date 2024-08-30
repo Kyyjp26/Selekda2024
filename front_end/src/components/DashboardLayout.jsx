@@ -4,7 +4,7 @@ import "../assets/css/dashboard-layout.css";
 export default function DashboardLayout() {
   return (
     <>
-      <nav>
+      <nav className="dashboard-nav">
         <div class="search-input">
           <input type="text" placeholder="Search" />
           <button type="button">Cari</button>

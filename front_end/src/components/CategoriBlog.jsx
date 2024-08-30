@@ -2,10 +2,10 @@ import "../assets/css/categori-blog.css";
 
 export default function CategoriBlog() {
   return (
-    <section class="categori">
+    <section className="categori">
       <h2>Categori</h2>
-      <div class="list-categori">
-        <ol class="categori-list">
+      <div className="list-categori">
+        <ol className="categori-list">
           <li>Pengembangan Web</li>
           <li>Desain Web</li>
           <li>SEO dan Pemasaran Digital</li>
